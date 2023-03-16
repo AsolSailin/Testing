@@ -8,7 +8,7 @@ namespace SF2022User07Tests
     [TestClass]
     public class Tests
     {
-        Calculations calculations = new Calculations();
+        readonly Calculations calculations = new Calculations();
 
         [TestMethod]
         public void MainTest()

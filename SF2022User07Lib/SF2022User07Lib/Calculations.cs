@@ -24,7 +24,7 @@ namespace SF2022User07Lib
                     continue;
                 }
 
-                time.Add($"{beginWorkingTime.ToString("hh':'mm")} - {beginWorkingTimeThree.ToString("hh':'mm")}");
+                time.Add($"{beginWorkingTime:hh':'mm} - {beginWorkingTimeThree:hh':'mm}");
                 beginWorkingTime += TimeSpan.FromMinutes(consultationTime);
             }
 
