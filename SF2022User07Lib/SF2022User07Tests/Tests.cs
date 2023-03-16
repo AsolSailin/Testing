@@ -55,7 +55,7 @@ namespace SF2022User07Tests
         }
 
         [TestMethod]
-        public void TestOne()
+        public void Test_Duration120()
         {
             var startTime = new TimeSpan[]
             {
@@ -95,7 +95,7 @@ namespace SF2022User07Tests
         }
 
         [TestMethod]
-        public void TestTwo()
+        public void Test_Cons120()
         {
             var startTime = new TimeSpan[]
             {
@@ -115,24 +115,19 @@ namespace SF2022User07Tests
             };
             var beginWorkingTime = TimeSpan.FromHours(8);
             var endWorkingTime = TimeSpan.FromHours(18);
-            var consultationTime = 45;
+            var consultationTime = 120;
 
             var expected = new string[]
             {
-                "08:00 - 08:45",
-                "08:45 - 09:30",
-                "11:30 - 12:15",
-                "12:15 - 13:00",
-                "13:00 - 13:45",
-                "13:45 - 14:30",
-                "15:40 - 16:25"
+                "08:00 - 10:00",
+                "11:30 - 13:30"
             };
             var actual = calculations.AvailablePeriods(startTime, durations, beginWorkingTime, endWorkingTime, consultationTime);
             Assert.IsTrue(actual.SequenceEqual(expected));
         }
 
         [TestMethod]
-        public void TestThree()
+        public void Test_End20()
         {
             var startTime = new TimeSpan[]
             {
@@ -180,7 +175,7 @@ namespace SF2022User07Tests
         }
 
         [TestMethod]
-        public void TestFour()
+        public void Test_Begin10()
         {
             var startTime = new TimeSpan[]
             {
@@ -220,7 +215,7 @@ namespace SF2022User07Tests
         }
 
         [TestMethod]
-        public void TestFive()
+        public void Test_Begin10_And_End22()
         {
             var startTime = new TimeSpan[]
             {
@@ -268,7 +263,7 @@ namespace SF2022User07Tests
         }
 
         [TestMethod]
-        public void TestSix()
+        public void Test_Begin10_Cons45()
         {
             var startTime = new TimeSpan[]
             {
@@ -303,7 +298,7 @@ namespace SF2022User07Tests
         }
 
         [TestMethod]
-        public void TestSeven()
+        public void Test_End20_Cons45()
         {
             var startTime = new TimeSpan[]
             {
@@ -343,7 +338,7 @@ namespace SF2022User07Tests
         }
 
         [TestMethod]
-        public void TestEight()
+        public void Test_Begin10_End22_Cons45()
         {
             var startTime = new TimeSpan[]
             {
@@ -384,7 +379,7 @@ namespace SF2022User07Tests
         }
 
         [TestMethod]
-        public void TestNine()
+        public void Test_Start8and17_Durations60and60()
         {
             var startTime = new TimeSpan[]
             {
@@ -392,7 +387,7 @@ namespace SF2022User07Tests
                 new TimeSpan(11, 0, 0),
                 new TimeSpan(15, 0, 0),
                 new TimeSpan(15, 30, 0),
-                new TimeSpan(18, 0, 0),
+                new TimeSpan(17, 0, 0),
             };
             var durations = new int[]
             {
@@ -420,16 +415,14 @@ namespace SF2022User07Tests
                 "14:00 - 14:30",
                 "14:30 - 15:00",
                 "15:40 - 16:10",
-                "16:10 - 16:40",
-                "16:40 - 17:10",
-                "17:10 - 17:40",
+                "16:10 - 16:40"
             };
             var actual = calculations.AvailablePeriods(startTime, durations, beginWorkingTime, endWorkingTime, consultationTime);
             Assert.IsTrue(actual.SequenceEqual(expected));
         }
 
         [TestMethod]
-        public void TestTen()
+        public void Test_Start10and21_Durations60and60_Begin10_End22_Cons45()
         {
             var startTime = new TimeSpan[]
             {
@@ -437,7 +430,7 @@ namespace SF2022User07Tests
                 new TimeSpan(11, 0, 0),
                 new TimeSpan(15, 0, 0),
                 new TimeSpan(15, 30, 0),
-                new TimeSpan(22, 0, 0),
+                new TimeSpan(21, 0, 0),
             };
             var durations = new int[]
             {
@@ -463,8 +456,7 @@ namespace SF2022User07Tests
                 "17:55 - 18:40",
                 "18:40 - 19:25",
                 "19:25 - 20:10",
-                "20:10 - 20:55",
-                "20:55 - 21:40"
+                "20:10 - 20:55"
             };
             var actual = calculations.AvailablePeriods(startTime, durations, beginWorkingTime, endWorkingTime, consultationTime);
             Assert.IsTrue(actual.SequenceEqual(expected));
